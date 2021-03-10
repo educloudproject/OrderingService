@@ -30,10 +30,10 @@ The microservice is now running locally on port `3004`.
 
 The following are sample `curl` commands that can be executed from a terminal/console window to interact with the Orders Microservice - the commands demonstrate the RESTful API exposed:
 
-1. Create/Add an Order (where the JSON object `{"userId": "1234"}` is the Order body to be added in this example - there is currently no validation on what data this JSON object contains, but it **MUST** contain an attribute named `userId`, which **MUST** be of type Integer):
+1. Create/Add an Order (where `9876` is the currently un-used Cart ID, and the JSON object `{"userId": "1234"}` is the Order body to be added in this example - there is currently no validation on what data this JSON object contains, but it **MUST** contain an attribute named `userId`, which **MUST** be of type Integer):
 
     ```
-    curl -X POST localhost:3004/orders -d '{"userId": 1234}'
+    curl -X POST localhost:3004/orders/9876 -d '{"userId": 1234}' -H 'Content-type: application/json'
     ```
 
     **Note:** All Orders added to the Inventory are assigned a randomly generated ID as part of the order body automatically - do not attempt to specify your own. You can see the assigned IDs with the List all command (see Step 2 below). 
